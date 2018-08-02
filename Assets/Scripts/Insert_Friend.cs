@@ -30,7 +30,7 @@ public class Insert_Friend : MonoBehaviour {
         DataDic.Add("sex", sex.text);
         DataDic.Add("phone", phone.text);
         DataDic.Add("job", job.text);
-        DataDic.Add("where", where.text);
+        DataDic.Add("place", where.text);
         DataDic.Add("personality", personality.text);
         DataDic.Add("etc", etc.text);
 

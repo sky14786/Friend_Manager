@@ -7,7 +7,7 @@ using LitJson;
 public class Data_Load : MonoBehaviour
 {
     public string url;
-
+  
     private void Awake()
     {
         url = "sky14786.cafe24.com/Friend_Select.php";
@@ -27,18 +27,41 @@ public class Data_Load : MonoBehaviour
         }
         Debug.Log(WebRequest.text);
         var n = LitJson.JsonMapper.ToObject(WebRequest.text);
+        GameObject[] Records = new GameObject[n.Count];
         for (int i = 0; i < n.Count; i++)
         {
-            GameObject gg = Instantiate(Resources.Load("One_recorde"), SystemManager.Instance.Create.transform) as GameObject;
-            Friend_Info.Instance.name.text = n[i][0].ToString();
-            Friend_Info.Instance.age.text = n[i][1].ToString();
-            Friend_Info.Instance.sex.text = n[i][2].ToString();
-            Friend_Info.Instance.phone.text = n[i][3].ToString();
-            Friend_Info.Instance.job.text = n[i][4].ToString();
-            Friend_Info.Instance.place.text = n[i][5].ToString();
-            Friend_Info.Instance.personality.text = n[i][6].ToString();
-            Friend_Info.Instance.etc.text = n[i][7].ToString();
-            Friend_Info.Instance.update_date.text = n[i][8].ToString();
+            Records[i] = Instantiate(Resources.Load("One_recorde"), SystemManager.Instance.Create.transform) as GameObject;
+            Debug.Log(n[i][0].ToString());
+            for (int j = 0; j < Records[i].transform.childCount; j++)
+            {
+                if (Records[i].transform.GetChild(j).name.ToString() == "name")
+                    Records[i].transform.GetChild(j).GetComponent<Text>().text = n[i][j].ToString();
+                if (Records[i].transform.GetChild(j).name.ToString() == "age")
+                    Records[i].transform.GetChild(j).GetComponent<Text>().text = n[i][j].ToString();
+                if (Records[i].transform.GetChild(j).name.ToString() == "sex")
+                    Records[i].transform.GetChild(j).GetComponent<Text>().text = n[i][j].ToString();
+                if (Records[i].transform.GetChild(j).name.ToString() == "phone")
+                    Records[i].transform.GetChild(j).GetComponent<Text>().text = n[i][j].ToString();
+                if (Records[i].transform.GetChild(j).name.ToString() == "job")
+                    Records[i].transform.GetChild(j).GetComponent<Text>().text = n[i][j].ToString();
+                if (Records[i].transform.GetChild(j).name.ToString() == "place")
+                    Records[i].transform.GetChild(j).GetComponent<Text>().text = n[i][j].ToString();
+                if (Records[i].transform.GetChild(j).name.ToString() == "personality")
+                    Records[i].transform.GetChild(j).GetComponent<Text>().text = n[i][j].ToString();
+                if (Records[i].transform.GetChild(j).name.ToString() == "etc")
+                    Records[i].transform.GetChild(j).GetComponent<Text>().text = n[i][j].ToString();
+                if (Records[i].transform.GetChild(j).name.ToString() == "update_date")
+                    Records[i].transform.GetChild(j).GetComponent<Text>().text = n[i][j].ToString();
+            }
+            //Friend_Info.Instance.name.text = n[i][0].ToString();
+            //Friend_Info.Instance.age.text = n[i][1].ToString();
+            //Friend_Info.Instance.sex.text = n[i][2].ToString();
+            //Friend_Info.Instance.phone.text = n[i][3].ToString();
+            //Friend_Info.Instance.job.text = n[i][4].ToString();
+            //Friend_Info.Instance.place.text = n[i][5].ToString();
+            //Friend_Info.Instance.personality.text = n[i][6].ToString();
+            //Friend_Info.Instance.etc.text = n[i][7].ToString();
+            //Friend_Info.Instance.update_date.text = n[i][8].ToString();
         }
 
 
