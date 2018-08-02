@@ -11,13 +11,13 @@ public class SystemManager : MonoBehaviour {
         {
             if(instance==null)
             {
-                instance = new SystemManager();
+                instance = (SystemManager)FindObjectOfType<SystemManager>();
             }
             return instance;
         }
     }
     public GameObject one_recorde,Create;
-    public Text name, age, sex, phone, job, place, personality, etc, update_date;
+   
    
     
     
