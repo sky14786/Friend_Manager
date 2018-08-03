@@ -3,14 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Update_SQL : MonoBehaviour {
+    public string url;
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    private void Awake()
+    {
+        
+    }
 }
