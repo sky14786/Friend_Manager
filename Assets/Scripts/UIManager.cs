@@ -18,7 +18,9 @@ public class UIManager : MonoBehaviour {
         }
     }
 
-    public GameObject Data_Input_Panel;
+    public GameObject Data_Input_Panel,Date_Update_Panel;
+
+    public InputField Update_Name, Update_Age, Update_Sex, Update_Phone, Update_Job, Update_Place, Update_Personality, Update_ETC;
 
   public void _InputPanelOn()
     {

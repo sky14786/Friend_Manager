@@ -27,32 +27,50 @@ public class Data_Load : MonoBehaviour
         }
         Debug.Log(WebRequest.text);
         var n = LitJson.JsonMapper.ToObject(WebRequest.text);
-        GameObject[] Records = new GameObject[n.Count];
+       SystemManager.Instance.Records = new GameObject[n.Count];
+        if (!SystemManager.Instance.isFirst)
+        {
+            for (int z = 0; z < SystemManager.Instance.temp; z++)
+            {
+                Debug.Log("파괴");
+                DestroyObject(SystemManager.Instance.Create.transform.GetChild(z).gameObject);
+            }
+        }
         for (int i = 0; i < n.Count; i++)
         {
-            Records[i] = Instantiate(Resources.Load("One_recorde"), SystemManager.Instance.Create.transform) as GameObject;
+            SystemManager.Instance.Records[i] = Instantiate(Resources.Load("One_recorde"), SystemManager.Instance.Create.transform) as GameObject;
             Debug.Log(n[i][0].ToString());
-            for (int j = 0; j < Records[i].transform.childCount; j++)
+            for (int j = 0; j < SystemManager.Instance.Records[i].transform.childCount; j++)
             {
-                if (Records[i].transform.GetChild(j).name.ToString() == "name")
-                    Records[i].transform.GetChild(j).GetComponent<Text>().text = n[i][j].ToString();
-                if (Records[i].transform.GetChild(j).name.ToString() == "age")
-                    Records[i].transform.GetChild(j).GetComponent<Text>().text = n[i][j].ToString();
-                if (Records[i].transform.GetChild(j).name.ToString() == "sex")
-                    Records[i].transform.GetChild(j).GetComponent<Text>().text = n[i][j].ToString();
-                if (Records[i].transform.GetChild(j).name.ToString() == "phone")
-                    Records[i].transform.GetChild(j).GetComponent<Text>().text = n[i][j].ToString();
-                if (Records[i].transform.GetChild(j).name.ToString() == "job")
-                    Records[i].transform.GetChild(j).GetComponent<Text>().text = n[i][j].ToString();
-                if (Records[i].transform.GetChild(j).name.ToString() == "place")
-                    Records[i].transform.GetChild(j).GetComponent<Text>().text = n[i][j].ToString();
-                if (Records[i].transform.GetChild(j).name.ToString() == "personality")
-                    Records[i].transform.GetChild(j).GetComponent<Text>().text = n[i][j].ToString();
-                if (Records[i].transform.GetChild(j).name.ToString() == "etc")
-                    Records[i].transform.GetChild(j).GetComponent<Text>().text = n[i][j].ToString();
-                if (Records[i].transform.GetChild(j).name.ToString() == "update_date")
-                    Records[i].transform.GetChild(j).GetComponent<Text>().text = n[i][j].ToString();
+                if (SystemManager.Instance.Records[i].transform.GetChild(j).name.ToString() == "name")
+                    SystemManager.Instance.Records[i].transform.GetChild(j).GetComponent<Text>().text = n[i][j].ToString();
+
+                if (SystemManager.Instance.Records[i].transform.GetChild(j).name.ToString() == "age")
+                    SystemManager.Instance.Records[i].transform.GetChild(j).GetComponent<Text>().text = n[i][j].ToString();
+
+                if (SystemManager.Instance.Records[i].transform.GetChild(j).name.ToString() == "sex")
+                    SystemManager.Instance.Records[i].transform.GetChild(j).GetComponent<Text>().text = n[i][j].ToString();
+
+                if (SystemManager.Instance.Records[i].transform.GetChild(j).name.ToString() == "phone")
+                    SystemManager.Instance.Records[i].transform.GetChild(j).GetComponent<Text>().text = n[i][j].ToString();
+
+                if (SystemManager.Instance.Records[i].transform.GetChild(j).name.ToString() == "job")
+                    SystemManager.Instance.Records[i].transform.GetChild(j).GetComponent<Text>().text = n[i][j].ToString();
+
+                if (SystemManager.Instance.Records[i].transform.GetChild(j).name.ToString() == "place")
+                    SystemManager.Instance.Records[i].transform.GetChild(j).GetComponent<Text>().text = n[i][j].ToString();
+
+                if (SystemManager.Instance.Records[i].transform.GetChild(j).name.ToString() == "personality")
+                    SystemManager.Instance.Records[i].transform.GetChild(j).GetComponent<Text>().text = n[i][j].ToString();
+
+                if (SystemManager.Instance.Records[i].transform.GetChild(j).name.ToString() == "etc")
+                    SystemManager.Instance.Records[i].transform.GetChild(j).GetComponent<Text>().text = n[i][j].ToString();
+
+                if (SystemManager.Instance.Records[i].transform.GetChild(j).name.ToString() == "update_date")
+                    SystemManager.Instance.Records[i].transform.GetChild(j).GetComponent<Text>().text = n[i][j].ToString();
             }
+            SystemManager.Instance.temp = n.Count;
+            SystemManager.Instance.isFirst = false;
         }
 
 

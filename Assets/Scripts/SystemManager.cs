@@ -17,6 +17,7 @@ public class SystemManager : MonoBehaviour {
         }
     }
     public GameObject one_recorde,Create;
+    public GameObject[] Records;
     public int temp;
     public bool isFirst = true;
 
