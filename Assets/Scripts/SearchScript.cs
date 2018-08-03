@@ -12,7 +12,7 @@ public class SearchScript : MonoBehaviour
     public Dropdown Search_Requirement;
     public InputField Search_Keyword;
     public int Temp;
-    public bool isFirst=true;
+    
     private void Awake()
     {
         Debug.Log("검색 URL 초기화 완료");
@@ -66,9 +66,9 @@ public class SearchScript : MonoBehaviour
             Debug.Log(WebRequest.text);
             var n = LitJson.JsonMapper.ToObject(WebRequest.text);
             GameObject[] Records = new GameObject[n.Count];
-            if (!isFirst)
+            if (!SystemManager.Instance.isFirst)
             {
-                for (int z = 0; z < Temp; z++)
+                for (int z = 0; z < SystemManager.Instance.temp; z++)
                 {
                     Debug.Log("파괴");
                     DestroyObject(SystemManager.Instance.Create.transform.GetChild(z).gameObject);
@@ -100,14 +100,11 @@ public class SearchScript : MonoBehaviour
                         Records[i].transform.GetChild(j).GetComponent<Text>().text = n[i][j].ToString();
                 }
             }
-            Temp = n.Count;
-            isFirst = false;
+            SystemManager.Instance.temp = n.Count;
+           SystemManager.Instance.isFirst = false;
         }
         else
             Debug.Log("error");
-
-
-
 
 
         yield return WebRequest;
