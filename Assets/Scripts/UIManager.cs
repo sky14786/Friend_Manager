@@ -18,12 +18,39 @@ public class UIManager : MonoBehaviour {
         }
     }
 
-    public GameObject Data_Input_Panel,Date_Update_Panel;
+    private void Awake()
+    {
+        Input_Penel_Exit.onClick.AddListener(() => _MoveHomePanel());
 
+        Data_Input_Btn.onClick.AddListener(() => _InputPanelOn());
+
+        Update_Panel_Exit.onClick.AddListener(() => _MoveHomePanel());
+    }
+
+    public GameObject Data_Input_Panel,Data_Update_Panel,ALL_DATA_PANEL;
+    public Button Input_Penel_Exit,Data_Input_Btn,Update_Panel_Exit;
     public InputField Update_Name, Update_Age, Update_Sex, Update_Phone, Update_Job, Update_Place, Update_Personality, Update_ETC;
 
   public void _InputPanelOn()
     {
+        ALLPanelOff();
         Data_Input_Panel.SetActive(true);
+    }
+
+    public void _MoveHomePanel()
+    {
+        ALLPanelOff();
+        ALL_DATA_PANEL.SetActive(true);
+    }
+    public void _UpdatePanelOn()
+    {
+        ALLPanelOff();
+        Data_Update_Panel.SetActive(true);
+    }
+    public void ALLPanelOff()
+    {
+        Data_Update_Panel.SetActive(false);
+        Data_Input_Panel.SetActive(false);
+        ALL_DATA_PANEL.SetActive(false);
     }
 }
