@@ -5,11 +5,14 @@ using UnityEngine.UI;
 using LitJson;
 
 
-public class SearchScript : MonoBehaviour {
+public class SearchScript : MonoBehaviour
+{
     public string Requirment;
     public string url;
     public Dropdown Search_Requirement;
     public InputField Search_Keyword;
+    public int Temp;
+    public bool isFirst=true;
     private void Awake()
     {
         Debug.Log("검색 URL 초기화 완료");
@@ -21,7 +24,7 @@ public class SearchScript : MonoBehaviour {
     //검색 조건 0 : 이름 // 1 : 직업 // 2 : 나이 // 3 : 성별
     IEnumerator _Search()
     {
-        
+
         WWWForm form = new WWWForm();
         switch (Search_Requirement.value)
         {
@@ -47,10 +50,10 @@ public class SearchScript : MonoBehaviour {
                 }
         }
 
-        form.AddField("Search_Requirement",Requirment);
+        form.AddField("Search_Requirement", Requirment);
         form.AddField("Search_Keyword", Search_Keyword.text.ToString());
 
-       
+
         Debug.Log(Requirment);
         Debug.Log(Search_Keyword.text.ToString());
         WWW WebRequest = new WWW(url, form);
@@ -63,10 +66,18 @@ public class SearchScript : MonoBehaviour {
             Debug.Log(WebRequest.text);
             var n = LitJson.JsonMapper.ToObject(WebRequest.text);
             GameObject[] Records = new GameObject[n.Count];
+            if (!isFirst)
+            {
+                for (int z = 0; z < Temp; z++)
+                {
+                    Debug.Log("파괴");
+                    DestroyObject(SystemManager.Instance.Create.transform.GetChild(z).gameObject);
+                }
+            }
             for (int i = 0; i < n.Count; i++)
             {
                 Records[i] = Instantiate(Resources.Load("One_recorde"), SystemManager.Instance.Create.transform) as GameObject;
-               
+
                 for (int j = 0; j < Records[i].transform.childCount; j++)
                 {
                     if (Records[i].transform.GetChild(j).name.ToString() == "name")
@@ -89,6 +100,8 @@ public class SearchScript : MonoBehaviour {
                         Records[i].transform.GetChild(j).GetComponent<Text>().text = n[i][j].ToString();
                 }
             }
+            Temp = n.Count;
+            isFirst = false;
         }
         else
             Debug.Log("error");
