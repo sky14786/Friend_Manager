@@ -53,15 +53,6 @@ public class Data_Load : MonoBehaviour
                 if (Records[i].transform.GetChild(j).name.ToString() == "update_date")
                     Records[i].transform.GetChild(j).GetComponent<Text>().text = n[i][j].ToString();
             }
-            //Friend_Info.Instance.name.text = n[i][0].ToString();
-            //Friend_Info.Instance.age.text = n[i][1].ToString();
-            //Friend_Info.Instance.sex.text = n[i][2].ToString();
-            //Friend_Info.Instance.phone.text = n[i][3].ToString();
-            //Friend_Info.Instance.job.text = n[i][4].ToString();
-            //Friend_Info.Instance.place.text = n[i][5].ToString();
-            //Friend_Info.Instance.personality.text = n[i][6].ToString();
-            //Friend_Info.Instance.etc.text = n[i][7].ToString();
-            //Friend_Info.Instance.update_date.text = n[i][8].ToString();
         }
 
 

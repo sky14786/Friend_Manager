@@ -5780,6 +5780,7 @@ GameObject:
   - component: {fileID: 1345438949}
   - component: {fileID: 1345438948}
   - component: {fileID: 1345438947}
+  - component: {fileID: 1345438950}
   m_Layer: 5
   m_Name: Search
   m_TagString: Untagged
@@ -5880,6 +5881,20 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1345438945}
+--- !u!114 &1345438950
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1345438945}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92a71d96194d05948a5fe7dd9dab716b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  url: 
+  Search_Requirement: {fileID: 1731817114}
+  Search_Keyword: {fileID: 552808297}
 --- !u!1 &1352132694
 GameObject:
   m_ObjectHideFlags: 0
@@ -7611,8 +7626,6 @@ MonoBehaviour:
   m_Options:
     m_Options:
     - m_Text: "\uC774\uB984"
-      m_Image: {fileID: 0}
-    - m_Text: "\uC9C1\uC7A5"
       m_Image: {fileID: 0}
     - m_Text: "\uC9C1\uC5C5"
       m_Image: {fileID: 0}
