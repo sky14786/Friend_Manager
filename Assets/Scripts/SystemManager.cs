@@ -17,7 +17,7 @@ public class SystemManager : MonoBehaviour {
         }
     }
     public GameObject one_recorde,Create;
-   
+    
    
     
     
