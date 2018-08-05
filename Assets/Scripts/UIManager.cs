@@ -28,7 +28,7 @@ public class UIManager : MonoBehaviour {
     }
 
     public GameObject Data_Input_Panel,Data_Update_Panel,ALL_DATA_PANEL;
-    public Button Input_Penel_Exit,Data_Input_Btn,Update_Panel_Exit;
+    public Button Input_Penel_Exit,Data_Input_Btn,Update_Panel_Exit,Update_Button;
     public InputField Update_Name, Update_Age, Update_Sex, Update_Phone, Update_Job, Update_Place, Update_Personality, Update_ETC;
 
   public void _InputPanelOn()
