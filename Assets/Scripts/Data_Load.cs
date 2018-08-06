@@ -10,7 +10,7 @@ public class Data_Load : MonoBehaviour
   
     private void Awake()
     {
-        url = "sky14786.cafe24.com/Friend_Select.php";
+        url = "sky14786.cafe24.com/FR/Friend_Select.php";
         this.GetComponent<Button>().onClick.AddListener(() => StartCoroutine(_SelectDB()));
     }
 
@@ -42,6 +42,9 @@ public class Data_Load : MonoBehaviour
             Debug.Log(n[i][0].ToString());
             for (int j = 0; j < SystemManager.Instance.Records[i].transform.childCount; j++)
             {
+                if (SystemManager.Instance.Records[i].transform.GetChild(j).name.ToString() == "no")
+                    SystemManager.Instance.Records[i].transform.GetChild(j).GetComponent<Text>().text = n[i][j].ToString();
+
                 if (SystemManager.Instance.Records[i].transform.GetChild(j).name.ToString() == "name")
                     SystemManager.Instance.Records[i].transform.GetChild(j).GetComponent<Text>().text = n[i][j].ToString();
 
