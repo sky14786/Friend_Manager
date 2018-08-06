@@ -22,6 +22,7 @@ public class Update_SQL : MonoBehaviour {
         WWWForm form = new WWWForm();   
 
         Dictionary<string, string> DataDic = new Dictionary<string, string>();
+        DataDic.Add("no", UIManager.Instance.Update_No.text);
         DataDic.Add("names", UIManager.Instance.Update_Name.text);
         DataDic.Add("age", UIManager.Instance.Update_Age.text);
         DataDic.Add("sex", UIManager.Instance.Update_Sex.text);

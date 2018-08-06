@@ -76,7 +76,7 @@ public class Data_Load : MonoBehaviour
             SystemManager.Instance.isFirst = false;
         }
 
-
+        
         yield return WebRequest;
     }
 }
