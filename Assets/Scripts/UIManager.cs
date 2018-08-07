@@ -4,13 +4,14 @@ using UnityEngine;
 using UnityEngine.UI;
 
 
-public class UIManager : MonoBehaviour {
+public class UIManager : MonoBehaviour
+{
     private static UIManager instance;
     public static UIManager Instance
     {
         get
         {
-            if(instance==null)
+            if (instance == null)
             {
                 instance = (UIManager)FindObjectOfType<UIManager>();
             }
@@ -27,11 +28,12 @@ public class UIManager : MonoBehaviour {
         Update_Panel_Exit.onClick.AddListener(() => _MoveHomePanel());
     }
 
-    public GameObject Data_Input_Panel,Data_Update_Panel,ALL_DATA_PANEL;
-    public Button Input_Penel_Exit,Data_Input_Btn,Update_Panel_Exit,Update_Button;
-    public InputField Update_No,Update_Name, Update_Age, Update_Sex, Update_Phone, Update_Job, Update_Place, Update_Personality, Update_ETC;
+    public GameObject Data_Input_Panel, Data_Update_Panel, ALL_DATA_PANEL;
+    public Button Input_Penel_Exit, Data_Input_Btn, Update_Panel_Exit, Update_Button;
+    public InputField Update_No, Update_Name, Update_Age, Update_Sex, Update_Phone, Update_Job, Update_Place, Update_Personality, Update_ETC;
 
-  public void _InputPanelOn()
+
+    public void _InputPanelOn()
     {
         ALLPanelOff();
         Data_Input_Panel.SetActive(true);
