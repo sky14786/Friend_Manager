@@ -12621,6 +12621,7 @@ MonoBehaviour:
   Data_Input_Btn: {fileID: 967798133}
   Update_Panel_Exit: {fileID: 1570276222}
   Update_Button: {fileID: 2032383282}
+  ID_Check_Button: {fileID: 2017285282}
   Update_No: {fileID: 424688046}
   Update_Name: {fileID: 1901599052}
   Update_Age: {fileID: 650709500}
@@ -12630,6 +12631,11 @@ MonoBehaviour:
   Update_Place: {fileID: 944394507}
   Update_Personality: {fileID: 2067217659}
   Update_ETC: {fileID: 2009965824}
+  Create_ID: {fileID: 1636744681}
+  Create_PW: {fileID: 1823337173}
+  Create_Name: {fileID: 144368004}
+  Create_PW_Check: {fileID: 1993161305}
+  Create_ID_Check: {fileID: 1746759118}
 --- !u!114 &2045114043
 MonoBehaviour:
   m_ObjectHideFlags: 0
