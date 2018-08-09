@@ -10,7 +10,7 @@ public class Data_Load : MonoBehaviour
   
     private void Awake()
     {
-        url = "sky14786.cafe24.com/FR/Friend_Select.php";
+        url = "sky14786.cafe24.com/FM/Friend_Select.php";
         this.GetComponent<Button>().onClick.AddListener(() => StartCoroutine(_SelectDB()));
     }
 

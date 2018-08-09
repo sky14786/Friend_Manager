@@ -8862,7 +8862,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1614906039
 RectTransform:
   m_ObjectHideFlags: 0
@@ -12545,6 +12545,7 @@ GameObject:
   - component: {fileID: 2045114041}
   - component: {fileID: 2045114042}
   - component: {fileID: 2045114043}
+  - component: {fileID: 2045114044}
   m_Layer: 0
   m_Name: SystemManager
   m_TagString: Untagged
@@ -12622,6 +12623,7 @@ MonoBehaviour:
   Update_Panel_Exit: {fileID: 1570276222}
   Update_Button: {fileID: 2032383282}
   ID_Check_Button: {fileID: 2017285282}
+  Create_ID_Button: {fileID: 2137684651}
   Update_No: {fileID: 424688046}
   Update_Name: {fileID: 1901599052}
   Update_Age: {fileID: 650709500}
@@ -12648,6 +12650,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   url: 
+--- !u!114 &2045114044
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2045114038}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5f3d9b8bef592e4ea3ce1ddbd7cc35b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  url: 
+  ID_Check_url: 
+  isUsed: 0
+  isSame: 0
 --- !u!1 &2064735223
 GameObject:
   m_ObjectHideFlags: 0

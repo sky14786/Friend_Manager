@@ -11,7 +11,7 @@ public class Update_SQL : MonoBehaviour {
     private void Awake()
     {
         Debug.Log("Update Query URL Setting Complete");
-        url = "sky14786.cafe24.com/FR/Update_Friend.php";
+        url = "sky14786.cafe24.com/FM/Update_Friend.php";
         UIManager.Instance.Update_Button.onClick.AddListener(() => StartCoroutine(_UpdateFriend()));
     }
 

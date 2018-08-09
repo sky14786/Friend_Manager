@@ -11,7 +11,7 @@ public class Insert_Friend : MonoBehaviour {
     public WWW WebRequest;
     private void Awake()
     {
-        url = "sky14786.cafe24.com/FR/Insert_Friend.php";
+        url = "sky14786.cafe24.com/FM/Insert_Friend.php";
     }
     public IEnumerator _InsertFriend()
     {

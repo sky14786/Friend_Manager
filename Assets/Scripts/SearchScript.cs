@@ -16,7 +16,7 @@ public class SearchScript : MonoBehaviour
     private void Awake()
     {
         Debug.Log("검색 URL 초기화 완료");
-        url = "sky14786.cafe24.com/FR/Search_Data.php";
+        url = "sky14786.cafe24.com/FM/Search_Data.php";
         this.GetComponent<Button>().onClick.AddListener(() => StartCoroutine(_Search()));
     }
 
