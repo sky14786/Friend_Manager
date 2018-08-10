@@ -13,7 +13,7 @@ public class LoginScript : MonoBehaviour
         Debug.Log("Login URL Setting Complete");
         Login_url = "sky14786.cafe24.com/FM/User_Login.php";
 
-        this.GetComponent<Button>().onClick.AddListener(() => StartCoroutine(_Login()));
+        UIManager.Instance.Login_Button.onClick.AddListener(() => StartCoroutine(_Login()));
     }
 
     IEnumerator _Login()
@@ -23,13 +23,22 @@ public class LoginScript : MonoBehaviour
         form.AddField("id", User_id.text.ToString());
         form.AddField("pw", User_Pw.text.ToString());
 
+
         WWW WebReqeust = new WWW(Login_url, form);
+
+        yield return WebReqeust.text;
+        while (!WebReqeust.isDone)
+        {
+            yield return null;
+        }
+
 
         if (WebReqeust.text == User_id.text.ToString())
         {
             SystemManager.Instance.User_ID = WebReqeust.text;
             UIManager.Instance.Main_Panel.SetActive(false);
             UIManager.Instance._MoveHomePanel();
+            yield break;
         }
         else
         {
@@ -49,6 +58,6 @@ public class LoginScript : MonoBehaviour
             }
         }
 
-
+        yield break;
     }
 }
