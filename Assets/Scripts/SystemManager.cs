@@ -20,6 +20,7 @@ public class SystemManager : MonoBehaviour {
     public GameObject[] Records;
     public int temp;
     public bool isFirst = true;
+    public string User_ID;
 
 
 
