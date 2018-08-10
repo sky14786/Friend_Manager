@@ -34,7 +34,7 @@ public class UIManager : MonoBehaviour
 
     public GameObject Data_Input_Panel, Data_Update_Panel, ALL_DATA_PANEL, Create_User_Panel,Main_Panel;
 
-    public Button Input_Penel_Exit, Data_Input_Btn, Update_Panel_Exit, Update_Button;
+    public Button Input_Penel_Exit, Data_Input_Btn, Update_Panel_Exit, Update_Button,Insert_Button;
     public Button ID_Check_Button, Create_Button, Create_User_Button, Create_Exit_Button, Login_Button, Connect_Button;
 
 

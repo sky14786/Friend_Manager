@@ -12,6 +12,7 @@ public class Insert_Friend : MonoBehaviour {
     private void Awake()
     {
         url = "sky14786.cafe24.com/FM/Insert_Friend.php";
+        UIManager.Instance.Insert_Button.onClick.AddListener(() => StartCoroutine(_InsertFriend()));
     }
     public IEnumerator _InsertFriend()
     {
@@ -27,6 +28,7 @@ public class Insert_Friend : MonoBehaviour {
         DataDic.Add("place", where.text);
         DataDic.Add("personality", personality.text);
         DataDic.Add("etc", etc.text);
+        DataDic.Add("owner", SystemManager.Instance.User_ID);
 
         foreach (KeyValuePair<string, string> data in DataDic)
         {

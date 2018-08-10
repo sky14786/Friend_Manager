@@ -8522,7 +8522,6 @@ GameObject:
   - component: {fileID: 1493385801}
   - component: {fileID: 1493385800}
   - component: {fileID: 1493385799}
-  - component: {fileID: 1493385802}
   m_Layer: 5
   m_Name: Login_Button
   m_TagString: Untagged
@@ -8622,20 +8621,6 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1493385797}
---- !u!114 &1493385802
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1493385797}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9cb99b7f16b6f0d4d85847ca41363957, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Login_url: 
-  User_id: {fileID: 995089801}
-  User_Pw: {fileID: 587150663}
 --- !u!1 &1519060734
 GameObject:
   m_ObjectHideFlags: 0
@@ -12678,6 +12663,7 @@ GameObject:
   - component: {fileID: 2045114042}
   - component: {fileID: 2045114043}
   - component: {fileID: 2045114044}
+  - component: {fileID: 2045114045}
   m_Layer: 0
   m_Name: SystemManager
   m_TagString: Untagged
@@ -12757,6 +12743,7 @@ MonoBehaviour:
   Data_Input_Btn: {fileID: 967798133}
   Update_Panel_Exit: {fileID: 1570276222}
   Update_Button: {fileID: 2032383282}
+  Insert_Button: {fileID: 1557154269}
   ID_Check_Button: {fileID: 2017285282}
   Create_Button: {fileID: 940977445}
   Create_User_Button: {fileID: 2137684651}
@@ -12804,6 +12791,20 @@ MonoBehaviour:
   ID_Check_url: 
   isUsed: 0
   isSame: 0
+--- !u!114 &2045114045
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2045114038}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9cb99b7f16b6f0d4d85847ca41363957, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Login_url: 
+  User_id: {fileID: 995089801}
+  User_Pw: {fileID: 587150663}
 --- !u!1 &2064735223
 GameObject:
   m_ObjectHideFlags: 0

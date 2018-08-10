@@ -16,7 +16,10 @@ public class Data_Load : MonoBehaviour
 
     IEnumerator _SelectDB()
     {
-        WWW WebRequest = new WWW(url);
+
+        WWWForm form = new WWWForm();
+        form.AddField("owner", SystemManager.Instance.User_ID);
+        WWW WebRequest = new WWW(url,form);
         if (WebRequest.error == null)
             Debug.Log("error null");
         else

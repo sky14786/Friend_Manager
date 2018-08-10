@@ -31,6 +31,7 @@ public class Update_SQL : MonoBehaviour {
         DataDic.Add("place", UIManager.Instance.Update_Place.text);
         DataDic.Add("personality", UIManager.Instance.Update_Personality.text);
         DataDic.Add("etc", UIManager.Instance.Update_ETC.text);
+        DataDic.Add("owner", SystemManager.Instance.User_ID.ToString());
 
         foreach (KeyValuePair<string, string> data in DataDic)
         {
