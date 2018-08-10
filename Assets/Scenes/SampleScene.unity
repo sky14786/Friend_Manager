@@ -3190,7 +3190,7 @@ RectTransform:
   - {fileID: 2137684650}
   - {fileID: 1348544951}
   m_Father: {fileID: 745862674}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -4387,8 +4387,8 @@ RectTransform:
   - {fileID: 222825197}
   - {fileID: 995089800}
   - {fileID: 587150662}
-  - {fileID: 585709149}
   - {fileID: 753378635}
+  - {fileID: 585709149}
   m_Father: {fileID: 1816477073}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4447,7 +4447,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &753378635
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4460,7 +4460,7 @@ RectTransform:
   m_Children:
   - {fileID: 229329418}
   m_Father: {fileID: 745862674}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -8522,6 +8522,7 @@ GameObject:
   - component: {fileID: 1493385801}
   - component: {fileID: 1493385800}
   - component: {fileID: 1493385799}
+  - component: {fileID: 1493385802}
   m_Layer: 5
   m_Name: Login_Button
   m_TagString: Untagged
@@ -8621,6 +8622,20 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1493385797}
+--- !u!114 &1493385802
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1493385797}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9cb99b7f16b6f0d4d85847ca41363957, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Login_url: 
+  User_id: {fileID: 995089801}
+  User_Pw: {fileID: 587150663}
 --- !u!1 &1519060734
 GameObject:
   m_ObjectHideFlags: 0
@@ -12721,6 +12736,7 @@ MonoBehaviour:
   Records: []
   temp: 0
   isFirst: 1
+  User_ID: 
 --- !u!114 &2045114042
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12736,6 +12752,7 @@ MonoBehaviour:
   Data_Update_Panel: {fileID: 523262018}
   ALL_DATA_PANEL: {fileID: 818354146}
   Create_User_Panel: {fileID: 585709148}
+  Main_Panel: {fileID: 745862673}
   Input_Penel_Exit: {fileID: 2064735225}
   Data_Input_Btn: {fileID: 967798133}
   Update_Panel_Exit: {fileID: 1570276222}
