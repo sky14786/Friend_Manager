@@ -13,7 +13,7 @@ public class Create_User : MonoBehaviour
         url = "sky14786.cafe24.com/FM/Create_User.php";
         ID_Check_url = "sky14786.cafe24.com/FM/ID_Duplicate_Check.php";
 
-        UIManager.Instance.Create_ID_Button.onClick.AddListener(() =>StartCoroutine(_Createuser()));
+        UIManager.Instance.Create_User_Button.onClick.AddListener(() =>StartCoroutine(_Createuser()));
 
         UIManager.Instance.ID_Check_Button.onClick.AddListener(() => StartCoroutine(_ID_Check()));
     }

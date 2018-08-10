@@ -26,12 +26,22 @@ public class UIManager : MonoBehaviour
         Data_Input_Btn.onClick.AddListener(() => _InputPanelOn());
 
         Update_Panel_Exit.onClick.AddListener(() => _MoveHomePanel());
+
+        Create_Button.onClick.AddListener(() => Create_User_Panel.SetActive(true));
+
+        Create_Exit_Button.onClick.AddListener(() => Create_User_Panel.SetActive(false));
     }
 
-    public GameObject Data_Input_Panel, Data_Update_Panel, ALL_DATA_PANEL,Create_User_Panel,Login_Panel;
-    public Button Input_Penel_Exit, Data_Input_Btn, Update_Panel_Exit, Update_Button,ID_Check_Button,Create_ID_Button,Create_Exit_Button,Login_Button,Connect_Button;
+    public GameObject Data_Input_Panel, Data_Update_Panel, ALL_DATA_PANEL, Create_User_Panel;
+
+    public Button Input_Penel_Exit, Data_Input_Btn, Update_Panel_Exit, Update_Button;
+    public Button ID_Check_Button, Create_Button, Create_User_Button, Create_Exit_Button, Login_Button, Connect_Button;
+
+
     public InputField Update_No, Update_Name, Update_Age, Update_Sex, Update_Phone, Update_Job, Update_Place, Update_Personality, Update_ETC;
-    public InputField Create_ID, Create_PW, Create_Name,Create_PW_Check;
+    public InputField Create_ID, Create_PW, Create_Name, Create_PW_Check;
+
+
     public Text Create_ID_Check;
 
 
@@ -51,10 +61,7 @@ public class UIManager : MonoBehaviour
         ALLPanelOff();
         Data_Update_Panel.SetActive(true);
     }
-    public void _CreatePanelOn()
-    {
-        
-    }
+    
     public void ALLPanelOff()
     {
         Data_Update_Panel.SetActive(false);
