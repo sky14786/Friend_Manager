@@ -12683,14 +12683,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   url: 
-  names: {fileID: 227140219}
-  age: {fileID: 941104369}
-  sex: {fileID: 525425360}
-  phone: {fileID: 1618128056}
-  job: {fileID: 1484185756}
-  where: {fileID: 114205723}
-  personality: {fileID: 965461232}
-  etc: {fileID: 1677716665}
   Insert_Panel: {fileID: 1972267075}
 --- !u!4 &2045114040
 Transform:
@@ -12750,6 +12742,14 @@ MonoBehaviour:
   Create_Exit_Button: {fileID: 1348544952}
   Login_Button: {fileID: 1493385799}
   Connect_Button: {fileID: 753378636}
+  Insert_Name: {fileID: 227140219}
+  Insert_Age: {fileID: 941104369}
+  Insert_Sex: {fileID: 525425360}
+  Insert_Phone: {fileID: 1618128056}
+  Insert_Job: {fileID: 1484185756}
+  Insert_Place: {fileID: 114205723}
+  Insert_Personality: {fileID: 965461232}
+  Insert_ETC: {fileID: 1677716665}
   Update_No: {fileID: 424688046}
   Update_Name: {fileID: 1901599052}
   Update_Age: {fileID: 650709500}

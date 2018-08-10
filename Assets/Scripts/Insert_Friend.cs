@@ -5,7 +5,6 @@ using UnityEngine.UI;
  
 public class Insert_Friend : MonoBehaviour {
     public string url;
-    public InputField names, age, sex, phone, job, where, personality, etc;
     
     public GameObject Insert_Panel;
     public WWW WebRequest;
@@ -20,14 +19,14 @@ public class Insert_Friend : MonoBehaviour {
         WWWForm form = new WWWForm();
 
         Dictionary<string, string> DataDic = new Dictionary<string, string>();
-        DataDic.Add("names", names.text);
-        DataDic.Add("age", age.text);
-        DataDic.Add("sex", sex.text);
-        DataDic.Add("phone", phone.text);
-        DataDic.Add("job", job.text);
-        DataDic.Add("place", where.text);
-        DataDic.Add("personality", personality.text);
-        DataDic.Add("etc", etc.text);
+        DataDic.Add("names", UIManager.Instance.Insert_Name.text);
+        DataDic.Add("age", UIManager.Instance.Insert_Age.text);
+        DataDic.Add("sex", UIManager.Instance.Insert_Sex.text);
+        DataDic.Add("phone", UIManager.Instance.Insert_Phone.text);
+        DataDic.Add("job", UIManager.Instance.Insert_Job.text);
+        DataDic.Add("place", UIManager.Instance.Insert_Place.text);
+        DataDic.Add("personality", UIManager.Instance.Insert_Personality.text);
+        DataDic.Add("etc", UIManager.Instance.Insert_ETC.text);
         DataDic.Add("owner", SystemManager.Instance.User_ID);
 
         foreach (KeyValuePair<string, string> data in DataDic)

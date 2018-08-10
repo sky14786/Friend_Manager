@@ -37,7 +37,7 @@ public class UIManager : MonoBehaviour
     public Button Input_Penel_Exit, Data_Input_Btn, Update_Panel_Exit, Update_Button,Insert_Button;
     public Button ID_Check_Button, Create_Button, Create_User_Button, Create_Exit_Button, Login_Button, Connect_Button;
 
-
+    public InputField Insert_Name, Insert_Age, Insert_Sex, Insert_Phone, Insert_Job, Insert_Place, Insert_Personality, Insert_ETC;
     public InputField Update_No, Update_Name, Update_Age, Update_Sex, Update_Phone, Update_Job, Update_Place, Update_Personality, Update_ETC;
     public InputField Create_ID, Create_PW, Create_Name, Create_PW_Check;
 
@@ -67,5 +67,17 @@ public class UIManager : MonoBehaviour
         Data_Update_Panel.SetActive(false);
         Data_Input_Panel.SetActive(false);
         ALL_DATA_PANEL.SetActive(false);
+    }
+
+    public void _ResetText()
+    {
+        Insert_Name.text = null;
+        Insert_Age.text = null;
+        Insert_Sex.text = null;
+        Insert_Job.text = null;
+        Insert_Place.text = null;
+        Insert_Personality.text = null;
+        Insert_ETC.text = null;
+        Insert_Phone.text = null;
     }
 }
