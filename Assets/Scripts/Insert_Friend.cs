@@ -44,6 +44,8 @@ public class Insert_Friend : MonoBehaviour {
         Debug.Log(WebRequest.text);
         Debug.Log(WebRequest.error);
         Debug.Log("DB 정보 입력 종료");
+
+        UIManager.Instance._ResetText();
         yield break;
     }
 }
