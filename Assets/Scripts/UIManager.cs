@@ -36,6 +36,7 @@ public class UIManager : MonoBehaviour
 
     public Button Input_Penel_Exit, Data_Input_Btn, Update_Panel_Exit, Update_Button, Insert_Button;
     public Button ID_Check_Button, Create_Button, Create_User_Button, Create_Exit_Button, Login_Button, Connect_Button;
+    public Button CamOn_Btn, CamOff_Btn;
 
     public InputField Insert_Name, Insert_Age, Insert_Sex, Insert_Phone, Insert_Job, Insert_Place, Insert_Personality, Insert_ETC;
     public InputField Update_No, Update_Name, Update_Age, Update_Sex, Update_Phone, Update_Job, Update_Place, Update_Personality, Update_ETC;
