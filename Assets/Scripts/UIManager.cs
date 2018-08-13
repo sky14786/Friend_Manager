@@ -32,9 +32,9 @@ public class UIManager : MonoBehaviour
         Create_Exit_Button.onClick.AddListener(() => Create_User_Panel.SetActive(false));
     }
 
-    public GameObject Data_Input_Panel, Data_Update_Panel, ALL_DATA_PANEL, Create_User_Panel,Main_Panel;
+    public GameObject Data_Input_Panel, Data_Update_Panel, ALL_DATA_PANEL, Create_User_Panel, Main_Panel;
 
-    public Button Input_Penel_Exit, Data_Input_Btn, Update_Panel_Exit, Update_Button,Insert_Button;
+    public Button Input_Penel_Exit, Data_Input_Btn, Update_Panel_Exit, Update_Button, Insert_Button;
     public Button ID_Check_Button, Create_Button, Create_User_Button, Create_Exit_Button, Login_Button, Connect_Button;
 
     public InputField Insert_Name, Insert_Age, Insert_Sex, Insert_Phone, Insert_Job, Insert_Place, Insert_Personality, Insert_ETC;
@@ -61,7 +61,7 @@ public class UIManager : MonoBehaviour
         ALLPanelOff();
         Data_Update_Panel.SetActive(true);
     }
-    
+
     public void ALLPanelOff()
     {
         Data_Update_Panel.SetActive(false);
