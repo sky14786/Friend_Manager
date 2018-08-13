@@ -22,7 +22,11 @@ public class SystemManager : MonoBehaviour {
     public bool isFirst = true;
     public string User_ID;
 
-
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+            Application.Quit();
+    }
 
 
 }
