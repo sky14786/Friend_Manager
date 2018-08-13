@@ -10,12 +10,16 @@ public class Camera_Scripts : MonoBehaviour
     private void Awake()
 
     {
+        Cam = new WebCamTexture();
+        
         UIManager.Instance.CamOn_Btn.onClick.AddListener(() => CamOn());
         UIManager.Instance.CamOff_Btn.onClick.AddListener(() => CamOff());
     }
 
     public void CamOn()
     {
+        UIManager.Instance.Camera_Panel.SetActive(true);
+        
         Cam.Play();
     }
 
