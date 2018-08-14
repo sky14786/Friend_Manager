@@ -13886,6 +13886,7 @@ MonoBehaviour:
   CamOn_Btn: {fileID: 1171415147}
   CamOff_Btn: {fileID: 2115299513}
   CamShot_Btn: {fileID: 1368747411}
+  CamUpLoad_Btn: {fileID: 1912254594}
   Insert_Name: {fileID: 227140219}
   Insert_Age: {fileID: 941104369}
   Insert_Sex: {fileID: 525425360}
@@ -13961,7 +13962,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Cam: {fileID: 0}
-  data: []
+  temp2: []
+  temp: {fileID: 0}
 --- !u!1 &2049837002
 GameObject:
   m_ObjectHideFlags: 0
