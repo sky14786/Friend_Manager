@@ -2,18 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System.IO;
 
 
 
 public class Camera_Scripts : MonoBehaviour
 {
     public WebCamTexture Cam;
-    public Color32[] data; 
-   
+    public Color32[] data;
+    public Texture2D temp;
+
+
     private void Awake()
-
     {
-
         Cam = new WebCamTexture();
         UIManager.Instance.CamObject.GetComponent<Renderer>().material.mainTexture = Cam;
         UIManager.Instance.CamOn_Btn.onClick.AddListener(() => CamOn());
@@ -24,8 +25,8 @@ public class Camera_Scripts : MonoBehaviour
     public void CamOn()
     {
         UIManager.Instance.Camera_Panel.SetActive(true);
-        
         Cam.Play();
+        UIManager.Instance.CamObject.GetComponent<Renderer>().material.shader = Shader.Find("Unlit/Texture");
     }
 
     public void CamOff()
@@ -37,48 +38,12 @@ public class Camera_Scripts : MonoBehaviour
     public void Shot()
     {
         data = new Color32[Cam.width * Cam.height];
+        Texture2D temp = new Texture2D(Cam.width, Cam.height);
+        temp.SetPixels32(Cam.GetPixels32());
+        ImageConversion.EncodeToJPG(temp);
+
+        
         Cam.Stop();
     }
-    //public struct RGB
-    //{
-    //    public byte Red;
-    //    public byte Green;
-    //    public byte Blue;
-
-    //    public RGB(Color inputColor)
-    //    {
-    //        Red = inputColor.R;
-    //        Green = inputColor.G;
-    //        Blue = inputColor.B;
-    //    }
-
-    //    public RGB(byte red, byte green, byte blue)
-    //    {
-    //        Red = red;
-    //        Green = green;
-    //        Blue = blue;
-    //    }
-    //}
-
-    //Bitmap RawImageSource;
-
-    //public JPEGEncoding(RGB[,] colorInputArray)
-    //{
-    //    RawImageSource = new Bitmap(colorInputArray.GetLength(0), colorInputArray.GetLength(1));
-
-    //    for (int j = 0; j & lt; colorInputArray.GetLength(0); j++)
-    //        {
-    //        for (int i = 0; i & lt; colorInputArray.GetLength(1); i++)
-    //            {
-    //            RawImageSource.SetPixel(j, i, Color.FromArgb(colorInputArray[j, i].Red, colorInputArray[j, i].Green, colorInputArray[j, i].Blue));
-    //        }
-    //    }
-
-    //}
-
-    //public void SaveImage(string path)
-    //{
-    //    RawImageSource.Save(path, System.Drawing.Imaging.ImageFormat.Jpeg);
-
-    //}
+  
 }
