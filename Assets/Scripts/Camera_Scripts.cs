@@ -41,7 +41,7 @@ public class Camera_Scripts : MonoBehaviour
 
     public void Shot()
     {
-      
+        
         Texture2D temp = new Texture2D(Cam.width, Cam.height);
         temp.SetPixels32(Cam.GetPixels32());
         Debug.Log(temp.width);
@@ -59,7 +59,7 @@ public class Camera_Scripts : MonoBehaviour
         ftp.KeepAlive = false;
 
 
-        byte[] data = new byte[temp.width*temp.height * 4];
+        byte[] data = new byte[temp.width*temp.height*4];
         temp2 = temp.GetPixels32();
         int idx = 0;
         for (int i = 0; i < temp2.Length; i++)
