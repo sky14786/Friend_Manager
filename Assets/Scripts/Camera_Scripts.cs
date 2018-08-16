@@ -10,20 +10,24 @@ using System.Net;
 public class Camera_Scripts : MonoBehaviour
 {
     public WebCamTexture Cam;
-    public Color32[] temp2;
-    public Texture2D temp;
-  
+    string sourceFilePath = "temp.jpg";
+
+    string targetFileURI = "ftp://sky14786.cafe24.com/FM/Images/"+SystemManager.Instance.User_ID+".jpg";
+
+    string userID = "sky14786";
+
+    string password = "whdkfk32!~";
 
 
     private void Awake()
     {
-    
+
         Cam = new WebCamTexture();
         UIManager.Instance.CamObject.GetComponent<Renderer>().material.mainTexture = Cam;
         UIManager.Instance.CamOn_Btn.onClick.AddListener(() => CamOn());
         UIManager.Instance.CamOff_Btn.onClick.AddListener(() => CamOff());
         UIManager.Instance.CamShot_Btn.onClick.AddListener(() => Shot());
-        UIManager.Instance.CamUpLoad_Btn.onClick.AddListener(() => StartCoroutine(_CamUpload()));
+        UIManager.Instance.CamUpLoad_Btn.onClick.AddListener(() => UploadFTPFile(sourceFilePath, targetFileURI, userID, password));
     }
 
     public void CamOn()
@@ -41,50 +45,53 @@ public class Camera_Scripts : MonoBehaviour
 
     public void Shot()
     {
-        
+
         Texture2D temp = new Texture2D(Cam.width, Cam.height);
         temp.SetPixels32(Cam.GetPixels32());
         Debug.Log(temp.width);
         Debug.Log(temp.height);
         System.IO.File.WriteAllBytes("temp.jpg", ImageConversion.EncodeToJPG(temp));
-        Cam.Stop();     
+        Cam.Stop();
     }
 
-    IEnumerator  _CamUpload()
+
+
+    public bool UploadFTPFile(string sourceFilePath, string targetFileURI, string userID, string password)
     {
-        FtpWebRequest ftp = (FtpWebRequest)WebRequest.Create("ftp://sky14786.cafe24.com:21/FM/Images/" + SystemManager.Instance.User_ID.ToString() + ".jpg");
-        ftp.Credentials = new NetworkCredential("sky14786", "whdkfk32!~");
-        ftp.UsePassive = true;
-        ftp.UseBinary = true;
-        ftp.KeepAlive = false;
-
-
-        byte[] data = new byte[temp.width*temp.height*4];
-        temp2 = temp.GetPixels32();
-        int idx = 0;
-        for (int i = 0; i < temp2.Length; i++)
+        try
         {
-            data[idx] = temp2[i].a;
-            data[idx + 1] = temp2[i].r;
-            data[idx + 2] = temp2[i].g;
-            data[idx + 3] = temp2[i].b;
+            System.Uri targetFileUri = new System.Uri(targetFileURI);
 
-            idx += 4;
+            FtpWebRequest ftpWebRequest = WebRequest.Create(targetFileUri) as FtpWebRequest;
+
+            ftpWebRequest.Credentials = new NetworkCredential(userID, password);
+            ftpWebRequest.Method = WebRequestMethods.Ftp.UploadFile;
+
+            FileStream sourceFileStream = new FileStream(sourceFilePath, FileMode.Open, FileAccess.Read);
+
+            Stream targetStream = ftpWebRequest.GetRequestStream();
+
+            byte[] bufferByteArray = new byte[1024];
+            while (true)
+            {
+                int byteCount = sourceFileStream.Read(bufferByteArray, 0, bufferByteArray.Length);
+
+                if (byteCount == 0)
+                {
+                    break;
+                }
+                targetStream.Write(bufferByteArray, 0, byteCount);
+            }
+            targetStream.Close();
+
+            sourceFileStream.Close();
+            System.IO.File.Delete("temp.jpg");
         }
-
-        ftp.ContentLength = data.Length;
-        using (Stream reqStream = ftp.GetRequestStream())
+        catch
         {
-            reqStream.Write(data, 0, data.Length);
+            return false;
         }
-
-        using (FtpWebResponse resp = (FtpWebResponse)ftp.GetResponse())
-        {
-            Debug.Log("Upload: {0}" + resp.StatusDescription);
-        }
-
-        yield break;
-
+        return true;
     }
 }
 
