@@ -69,8 +69,8 @@ public class Data_Load : MonoBehaviour
                 if (SystemManager.Instance.Records[i].transform.GetChild(j).name.ToString() == "personality")
                     SystemManager.Instance.Records[i].transform.GetChild(j).GetComponent<Text>().text = n[i][j].ToString();
 
-                if (SystemManager.Instance.Records[i].transform.GetChild(j).name.ToString() == "etc")
-                    SystemManager.Instance.Records[i].transform.GetChild(j).GetComponent<Text>().text = n[i][j].ToString();
+                //if (SystemManager.Instance.Records[i].transform.GetChild(j).name.ToString() == "etc")
+                //    SystemManager.Instance.Records[i].transform.GetChild(j).GetComponent<Text>().text = n[i][j].ToString();
 
                 if (SystemManager.Instance.Records[i].transform.GetChild(j).name.ToString() == "update_date")
                     SystemManager.Instance.Records[i].transform.GetChild(j).GetComponent<Text>().text = n[i][j].ToString();
