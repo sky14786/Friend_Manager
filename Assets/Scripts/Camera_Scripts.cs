@@ -12,7 +12,7 @@ public class Camera_Scripts : MonoBehaviour
     public WebCamTexture Cam;
     string sourceFilePath = "temp.jpg";
 
-    string targetFileURI = "ftp://sky14786.cafe24.com/FM/Images/"+SystemManager.Instance.User_ID+".jpg";
+    string targetFileURI = "ftp://sky14786.cafe24.com/FM/Images/temp.jpg";
 
     string userID = "sky14786";
 
