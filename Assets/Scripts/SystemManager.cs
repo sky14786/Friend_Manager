@@ -19,7 +19,7 @@ public class SystemManager : MonoBehaviour {
     public GameObject one_recorde,Create;
     public GameObject[] Records;
     public int temp;
-    public bool isFirst = true;
+    public bool isFirst = true, isHaveCam,isHaveETC;
     public string User_ID;
 
     private void Update()

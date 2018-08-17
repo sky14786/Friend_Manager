@@ -160,6 +160,7 @@ GameObject:
   - component: {fileID: 222914044154381988}
   - component: {fileID: 114584687809135406}
   - component: {fileID: 114937315702543062}
+  - component: {fileID: 114811713542515172}
   m_Layer: 0
   m_Name: Cam_Btn
   m_TagString: Untagged
@@ -639,6 +640,18 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: 
+--- !u!114 &114811713542515172
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1701107160624142}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89a80bb38e4eaa64186a040aa4dc274a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Cam: {fileID: 0}
 --- !u!114 &114830538820714248
 MonoBehaviour:
   m_ObjectHideFlags: 1
