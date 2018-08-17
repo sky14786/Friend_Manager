@@ -30,6 +30,7 @@ public class Camera_Scripts : MonoBehaviour
         StartCoroutine(_CheckCam());
         CamOn(SystemManager.Instance.isHaveCam);
             });
+
         UIManager.Instance.CamOff_Btn.onClick.AddListener(() => CamOff());
         UIManager.Instance.CamShot_Btn.onClick.AddListener(() => Shot());
         UIManager.Instance.CamUpLoad_Btn.onClick.AddListener(() => UploadFTPFile(sourceFilePath, targetFileURI, userID, password));
