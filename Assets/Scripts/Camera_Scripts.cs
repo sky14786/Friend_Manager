@@ -12,7 +12,9 @@ public class Camera_Scripts : MonoBehaviour
     public WebCamTexture Cam;
     string sourceFilePath = "temp.jpg";
     string CamCheckUrl;
-   
+    public string targetFileURI;
+
+
 
     string userID = "sky14786";
 
@@ -22,14 +24,15 @@ public class Camera_Scripts : MonoBehaviour
     private void Awake()
     {
         CamCheckUrl = "sky14786.cafe24.com/FM/CamCheck.php";
-        string targetFileURI = "ftp://sky14786.cafe24.com/FM/Images/" + SystemManager.Instance.User_ID + this.transform.parent.GetChild(0).GetComponent<Text>().text;
+        targetFileURI = "ftp://sky14786.cafe24.com/FM/Images/" + SystemManager.Instance.User_ID + this.transform.parent.GetChild(0).GetComponent<Text>().text;
         Cam = new WebCamTexture();
         UIManager.Instance.CamObject.GetComponent<Renderer>().material.mainTexture = Cam;
         //UIManager.Instance.CamOn_Btn.onClick.AddListener(() => CamOn());
-        this.GetComponent<Button>().onClick.AddListener(() => {
-        StartCoroutine(_CheckCam());
-        CamOn(SystemManager.Instance.isHaveCam);
-            });
+        this.GetComponent<Button>().onClick.AddListener(() =>
+        {
+            StartCoroutine(_CheckCam());
+            CamOn(SystemManager.Instance.isHaveCam);
+        });
 
         UIManager.Instance.CamOff_Btn.onClick.AddListener(() => CamOff());
         UIManager.Instance.CamShot_Btn.onClick.AddListener(() => Shot());
@@ -127,11 +130,23 @@ public class Camera_Scripts : MonoBehaviour
         Debug.Log(WebRequest.text);
         if (WebRequest.text == "true")
             SystemManager.Instance.isHaveCam = true;
-   
+
         else
             SystemManager.Instance.isHaveCam = false;
         yield break;
     }
+    IEnumerator _ImageView()
+    {
+        WWW WebRequest = new WWW(targetFileURI);
+        yield return WebRequest;
+        while (!WebRequest.isDone)
+        {
+            yield return null;
+        }
+        UIManager.Instance.CamObject.GetComponent<Renderer>().material.mainTexture = WebRequest.texture;
+        yield break;
+    }
+    
 }
 
 
