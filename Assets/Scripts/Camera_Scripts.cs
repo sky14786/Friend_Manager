@@ -111,7 +111,7 @@ public class Camera_Scripts : MonoBehaviour
         }
         catch
         {
-            return false;
+            return false;   
         }
         return true;
     }
