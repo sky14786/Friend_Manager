@@ -11,10 +11,8 @@ public class Camera_Scripts : MonoBehaviour
 {
     public WebCamTexture Cam;
     string sourceFilePath = "temp.jpg";
-    string CamCheckUrl;
+    string CamCheckUrl,PictureUploadUrl;
     public string targetFileURI;
-
-
 
     string userID = "sky14786";
 
@@ -23,10 +21,10 @@ public class Camera_Scripts : MonoBehaviour
 
     private void Awake()
     {
+        PictureUploadUrl = "sky14786.cafe24.com/FM/CamUpload.php";
         CamCheckUrl = "sky14786.cafe24.com/FM/CamCheck.php";
-        targetFileURI = "ftp://sky14786.cafe24.com/FM/Images/" + SystemManager.Instance.User_ID + this.transform.parent.GetChild(0).GetComponent<Text>().text;
         Cam = new WebCamTexture();
-        UIManager.Instance.CamObject.GetComponent<Renderer>().material.mainTexture = Cam;
+        
         //UIManager.Instance.CamOn_Btn.onClick.AddListener(() => CamOn());
         this.GetComponent<Button>().onClick.AddListener(() =>
         {
@@ -44,13 +42,18 @@ public class Camera_Scripts : MonoBehaviour
     {
         if (isHaveCam)
         {
-
+            StartCoroutine(_ImageView());
+            UIManager.Instance.Camera_Panel.SetActive(true);
+            Cam.Play();
         }
         else
         {
-            UIManager.Instance.Camera_Panel.SetActive(true);
-            Cam.Play();
             UIManager.Instance.CamObject.GetComponent<Renderer>().material.shader = Shader.Find("Unlit/Texture");
+           
+            Cam.Play();
+            UIManager.Instance.CamObject.GetComponent<Renderer>().material.mainTexture = Cam;
+            UIManager.Instance.Camera_Panel.SetActive(true);
+
         }
     }
 
@@ -79,6 +82,7 @@ public class Camera_Scripts : MonoBehaviour
     {
         try
         {
+            StartCoroutine(_PicUpload());
             System.Uri targetFileUri = new System.Uri(targetFileURI);
 
             FtpWebRequest ftpWebRequest = WebRequest.Create(targetFileUri) as FtpWebRequest;
@@ -102,7 +106,6 @@ public class Camera_Scripts : MonoBehaviour
                 targetStream.Write(bufferByteArray, 0, byteCount);
             }
             targetStream.Close();
-
             sourceFileStream.Close();
             System.IO.File.Delete("temp.jpg");
         }
@@ -115,6 +118,7 @@ public class Camera_Scripts : MonoBehaviour
 
     IEnumerator _CheckCam()
     {
+        targetFileURI = "ftp://sky14786.cafe24.com/FM/Images/" + SystemManager.Instance.User_ID + this.transform.parent.GetChild(0).GetComponent<Text>().text + ".jpg";
         WWWForm Form = new WWWForm();
         Form.AddField("No", this.transform.parent.GetChild(0).GetComponent<Text>().text);
         Form.AddField("ID", SystemManager.Instance.User_ID);
@@ -130,20 +134,40 @@ public class Camera_Scripts : MonoBehaviour
         Debug.Log(WebRequest.text);
         if (WebRequest.text == "true")
             SystemManager.Instance.isHaveCam = true;
-
         else
             SystemManager.Instance.isHaveCam = false;
         yield break;
     }
+
     IEnumerator _ImageView()
     {
         WWW WebRequest = new WWW(targetFileURI);
-        yield return WebRequest;
+       
         while (!WebRequest.isDone)
         {
             yield return null;
         }
+        yield return WebRequest;
         UIManager.Instance.CamObject.GetComponent<Renderer>().material.mainTexture = WebRequest.texture;
+        yield break;
+    }
+
+    IEnumerator _PicUpload()
+    {
+        WWWForm Form = new WWWForm();
+        Form.AddField("cam_data", targetFileURI);
+        Form.AddField("owner", SystemManager.Instance.User_ID);
+        Form.AddField("no", this.transform.parent.GetChild(0).GetComponent<Text>().text);
+
+        WWW WebRequest = new WWW(PictureUploadUrl, Form);
+
+        while (!WebRequest.isDone)
+        {
+            yield return null;
+        }
+        yield return WebRequest;
+        Debug.Log("Picture Upload Success");
+
         yield break;
     }
     
