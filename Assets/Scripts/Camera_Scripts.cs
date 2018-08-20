@@ -13,7 +13,7 @@ public class Camera_Scripts : MonoBehaviour
     string sourceFilePath = "temp.jpg";
     string CamCheckUrl,PictureUploadUrl;
     public string targetFileURI;
-
+    public Texture temptx;
     string userID = "sky14786";
 
     string password = "whdkfk32!~";
@@ -29,7 +29,7 @@ public class Camera_Scripts : MonoBehaviour
         this.GetComponent<Button>().onClick.AddListener(() =>
         {
             StartCoroutine(_CheckCam());
-            CamOn(SystemManager.Instance.isHaveCam);
+            
         });
 
         UIManager.Instance.CamOff_Btn.onClick.AddListener(() => CamOff());
@@ -42,17 +42,18 @@ public class Camera_Scripts : MonoBehaviour
     {
         if (isHaveCam)
         {
+            UIManager.Instance.CamObject.GetComponent<Renderer>().material.shader = Shader.Find("Unlit/Texture");
             StartCoroutine(_ImageView());
             UIManager.Instance.Camera_Panel.SetActive(true);
-            Cam.Play();
+            UIManager.Instance.CamObject.GetComponent<Renderer>().material.mainTexture = temptx;
+            //Cam.Play();
         }
         else
         {
             UIManager.Instance.CamObject.GetComponent<Renderer>().material.shader = Shader.Find("Unlit/Texture");
-           
-            Cam.Play();
             UIManager.Instance.CamObject.GetComponent<Renderer>().material.mainTexture = Cam;
             UIManager.Instance.Camera_Panel.SetActive(true);
+            Cam.Play();
 
         }
     }
@@ -120,8 +121,8 @@ public class Camera_Scripts : MonoBehaviour
     {
         targetFileURI = "ftp://sky14786.cafe24.com/FM/Images/" + SystemManager.Instance.User_ID + this.transform.parent.GetChild(0).GetComponent<Text>().text + ".jpg";
         WWWForm Form = new WWWForm();
-        Form.AddField("No", this.transform.parent.GetChild(0).GetComponent<Text>().text);
-        Form.AddField("ID", SystemManager.Instance.User_ID);
+        Form.AddField("no", this.transform.parent.GetChild(0).GetComponent<Text>().text);
+        Form.AddField("id", SystemManager.Instance.User_ID);
 
         WWW WebRequest = new WWW(CamCheckUrl, Form);
 
@@ -136,19 +137,22 @@ public class Camera_Scripts : MonoBehaviour
             SystemManager.Instance.isHaveCam = true;
         else
             SystemManager.Instance.isHaveCam = false;
+
+        CamOn(SystemManager.Instance.isHaveCam);
         yield break;
     }
 
     IEnumerator _ImageView()
     {
-        WWW WebRequest = new WWW(targetFileURI);
+        WWW WebRequest = new WWW("sky14786.cafe24.com/FM/Images" + SystemManager.Instance.User_ID + this.transform.parent.GetChild(0).GetComponent<Text>().text + ".jpg");
        
         while (!WebRequest.isDone)
         {
             yield return null;
         }
         yield return WebRequest;
-        UIManager.Instance.CamObject.GetComponent<Renderer>().material.mainTexture = WebRequest.texture;
+        
+        temptx = WebRequest.texture;
         yield break;
     }
 
