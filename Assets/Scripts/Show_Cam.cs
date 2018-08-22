@@ -1,18 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class NewBehaviourScript : MonoBehaviour
+public class Show_Cam : MonoBehaviour
 {
-    public string url;
+
 
     private void Awake()
     {
-        url = "sky14786.cafe24.com/FM/show_cam.php";
+        this.GetComponent<Button>().onClick.AddListener(() => StartCoroutine(Camera_Scripts.Instance._CheckCam(this.transform.parent.GetChild(0).GetComponent<Text>().text)));
     }
 
-   public void ShowPic()
-    {
-        
-    }
+  
 }

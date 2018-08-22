@@ -14051,6 +14051,7 @@ GameObject:
   - component: {fileID: 2045114043}
   - component: {fileID: 2045114044}
   - component: {fileID: 2045114045}
+  - component: {fileID: 2045114046}
   m_Layer: 0
   m_Name: SystemManager
   m_TagString: Untagged
@@ -14137,6 +14138,7 @@ MonoBehaviour:
   CamOff_Btn: {fileID: 2115299513}
   CamShot_Btn: {fileID: 1368747411}
   CamUpLoad_Btn: {fileID: 1912254594}
+  Cam_Retake: {fileID: 419128596}
   Insert_Name: {fileID: 227140219}
   Insert_Age: {fileID: 941104369}
   Insert_Sex: {fileID: 525425360}
@@ -14200,6 +14202,23 @@ MonoBehaviour:
   Login_url: 
   User_id: {fileID: 995089801}
   User_Pw: {fileID: 587150663}
+--- !u!114 &2045114046
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2045114038}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89a80bb38e4eaa64186a040aa4dc274a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Cam: {fileID: 0}
+  CamCheckUrl: 
+  PictureUploadUrl: 
+  Image_url: 
+  targetFileURI: 
+  temptx: {fileID: 0}
 --- !u!1 &2049837002
 GameObject:
   m_ObjectHideFlags: 0
