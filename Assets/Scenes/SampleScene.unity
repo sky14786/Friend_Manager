@@ -14123,6 +14123,7 @@ MonoBehaviour:
   Main_Panel: {fileID: 745862673}
   Camera_Panel: {fileID: 76648432}
   CamObject: {fileID: 1728356528}
+  Delete_Check: {fileID: 0}
   Input_Penel_Exit: {fileID: 2064735225}
   Data_Input_Btn: {fileID: 967798133}
   Update_Panel_Exit: {fileID: 732128826}
@@ -14139,6 +14140,8 @@ MonoBehaviour:
   CamShot_Btn: {fileID: 1368747411}
   CamUpLoad_Btn: {fileID: 1912254594}
   Cam_Retake: {fileID: 419128596}
+  Friend_Delete_Btn: {fileID: 0}
+  Delete_Check_Btn: {fileID: 0}
   Insert_Name: {fileID: 227140219}
   Insert_Age: {fileID: 941104369}
   Insert_Sex: {fileID: 525425360}
