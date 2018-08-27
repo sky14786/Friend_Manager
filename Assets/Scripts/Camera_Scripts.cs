@@ -24,7 +24,7 @@ public class Camera_Scripts : MonoBehaviour
         }
     }
 
-
+    public WebCamDevice Cam_Device;
     public WebCamTexture Cam;
     string sourceFilePath = "temp.jpg";
    public  string CamCheckUrl, PictureUploadUrl, Image_url;
@@ -37,6 +37,7 @@ public class Camera_Scripts : MonoBehaviour
 
     private void Awake()
     {
+        
         PictureUploadUrl = "sky14786.cafe24.com/FM/CamUpload.php";
         CamCheckUrl = "sky14786.cafe24.com/FM/CamCheck.php";
         Cam = new WebCamTexture();
