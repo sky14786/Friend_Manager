@@ -11,7 +11,19 @@ public class Insert_Friend : MonoBehaviour {
     private void Awake()
     {
         url = "sky14786.cafe24.com/FM/Insert_Friend.php";
-        UIManager.Instance.Insert_Button.onClick.AddListener(() => StartCoroutine(_InsertFriend()));
+        UIManager.Instance.Insert_Button.onClick.AddListener(() => Null_Check());
+    }
+
+    public void Null_Check()
+    {
+        if (UIManager.Instance.Insert_Age.text == null && UIManager.Instance.Insert_Name.text == null && UIManager.Instance.Insert_Sex.text == null && UIManager.Instance.Insert_Phone.text == null &&
+            UIManager.Instance.Insert_Job.text == null && UIManager.Instance.Insert_Place.text == null && UIManager.Instance.Insert_Personality.text == null)
+        {
+            StartCoroutine(_InsertFriend());
+        }
+        else
+            Debug.Log("모두 입력해 주세요");
+        
     }
     public IEnumerator _InsertFriend()
     {
