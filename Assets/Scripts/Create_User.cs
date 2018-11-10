@@ -49,6 +49,7 @@ public class Create_User : MonoBehaviour
 
             Debug.Log(WebRequest.text);
             Debug.Log("계정 생성 성공");
+            UIManager.Instance.Create_User_Panel.active = false;
         }
         
         yield break;

@@ -22,7 +22,7 @@ public class Insert_Friend : MonoBehaviour {
             StartCoroutine(_InsertFriend());
         }
         else
-            Debug.Log("모두 입력해 주세요");
+            Debug.Log("입력실패");
         
     }
     public IEnumerator _InsertFriend()
