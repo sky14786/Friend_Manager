@@ -16,8 +16,8 @@ public class Insert_Friend : MonoBehaviour {
 
     public void Null_Check()
     {
-        if (UIManager.Instance.Insert_Age.text == null && UIManager.Instance.Insert_Name.text == null && UIManager.Instance.Insert_Sex.text == null && UIManager.Instance.Insert_Phone.text == null &&
-            UIManager.Instance.Insert_Job.text == null && UIManager.Instance.Insert_Place.text == null && UIManager.Instance.Insert_Personality.text == null)
+        if (UIManager.Instance.Insert_Age.text != null && UIManager.Instance.Insert_Name.text != null && UIManager.Instance.Insert_Sex.text != null && UIManager.Instance.Insert_Phone.text != null &&
+            UIManager.Instance.Insert_Job.text != null && UIManager.Instance.Insert_Place.text != null && UIManager.Instance.Insert_Personality.text != null)
         {
             StartCoroutine(_InsertFriend());
         }
