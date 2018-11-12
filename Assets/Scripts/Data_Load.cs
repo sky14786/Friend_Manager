@@ -6,6 +6,18 @@ using LitJson;
 
 public class Data_Load : MonoBehaviour
 {
+    private static Data_Load instance;
+    public static Data_Load Instance
+    {
+        get
+        {
+            if (instance == null)
+            {
+                instance = (Data_Load)FindObjectOfType<Data_Load>();
+            }
+            return instance;
+        }
+    }
     public string url;
   
     private void Awake()
@@ -14,7 +26,7 @@ public class Data_Load : MonoBehaviour
         this.GetComponent<Button>().onClick.AddListener(() => StartCoroutine(_SelectDB()));
     }
 
-    IEnumerator _SelectDB()
+    public IEnumerator _SelectDB()
     {
 
         WWWForm form = new WWWForm();
@@ -69,6 +81,8 @@ public class Data_Load : MonoBehaviour
                 if (SystemManager.Instance.Records[i].transform.GetChild(j).name.ToString() == "personality")
                     SystemManager.Instance.Records[i].transform.GetChild(j).GetComponent<Text>().text = n[i][j].ToString();
 
+                if (SystemManager.Instance.Records[i].transform.GetChild(j).name.ToString() == "etc")
+                    SystemManager.Instance.Records[i].transform.GetChild(j).GetComponent<Text>().text = n[i][j].ToString();
 
                 if (SystemManager.Instance.Records[i].transform.GetChild(j).name.ToString() == "update_date")
                     SystemManager.Instance.Records[i].transform.GetChild(j).GetComponent<Text>().text = n[i][j].ToString();

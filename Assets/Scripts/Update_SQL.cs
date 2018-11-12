@@ -15,6 +15,7 @@ public class Update_SQL : MonoBehaviour {
         UIManager.Instance.Update_Button.onClick.AddListener(() => StartCoroutine(_UpdateFriend()));
     }
 
+   
     
     public IEnumerator _UpdateFriend()
     { 
@@ -48,7 +49,12 @@ public class Update_SQL : MonoBehaviour {
         Debug.Log(WebRequest.text);
         Debug.Log(WebRequest.error);
         Debug.Log("Friend Data Update Complete");
+
+
+
+    
         yield break;
+
     }
 }
 

@@ -31,7 +31,7 @@ public class Camera_Scripts : MonoBehaviour
     public string targetFileURI;
     public Texture temptx;
     string userID = "sky14786";
-    string password = "whdkfk321";
+    string password = "whdkfk32!~";
     string Field_no;
 
 
@@ -149,8 +149,8 @@ public class Camera_Scripts : MonoBehaviour
     public IEnumerator _CheckCam(string no)
     {
         Field_no = no;
-        Image_url = "sky14786.cafe24.com/FM/Images/" + SystemManager.Instance.User_ID +no + ".jpg";
-        targetFileURI = "ftp://sky14786.cafe24.com/FM/Images/" + SystemManager.Instance.User_ID + no+ ".jpg";
+        Image_url = "sky14786.cafe24.com/FM/Images/" + SystemManager.Instance.User_ID + "_" + no + ".jpg";
+        targetFileURI = "ftp://sky14786.cafe24.com/FM/Images/" + SystemManager.Instance.User_ID +"_"+ no+ ".jpg";
         WWWForm Form = new WWWForm();
         Form.AddField("no", Field_no);
         Form.AddField("id", SystemManager.Instance.User_ID);
@@ -182,6 +182,7 @@ public class Camera_Scripts : MonoBehaviour
         if (www.isNetworkError || www.isHttpError)
         {
             Debug.Log(www.error);
+            //UIManager.Instance.CamObject.GetComponent<Renderer>().material.mainTexture = ((DownloadHandlerTexture)www.downloadHandler).texture;
         }
         else
         {
